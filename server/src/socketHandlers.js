@@ -97,10 +97,6 @@ export function registerSocketHandlers(io, socket) {
       callback?.({ ok: false, error: "존재하지 않는 방입니다." });
       return;
     }
-    if (room.status === "ended") {
-      callback?.({ ok: false, error: "이미 종료된 게임에는 참여할 수 없습니다." });
-      return;
-    }
     if (findPlayer(room, clientId)) {
       callback?.({ ok: false, error: "이미 참여 중인 방입니다." });
       return;
