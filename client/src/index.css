@@ -359,9 +359,16 @@ textarea:focus {
 
 .question-list,
 .hint-list {
-  max-height: 160px;
   overflow-y: auto;
   padding-right: 4px;
+}
+
+.question-list {
+  max-height: 216px;
+}
+
+.hint-list {
+  max-height: 144px;
 }
 
 .pending-list {
@@ -688,9 +695,12 @@ textarea:focus {
     height: 280px;
   }
 
-  .question-list,
+  .question-list {
+    max-height: 216px;
+  }
+
   .hint-list {
-    max-height: 180px;
+    max-height: 144px;
   }
 }
 
