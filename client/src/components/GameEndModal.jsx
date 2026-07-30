@@ -35,33 +35,29 @@ export default function GameEndModal({ result, onClose }) {
         )}
 
         <div className="modal-section">
-          <h4>결말</h4>
+          <h4>정답</h4>
           <p>{result.ending}</p>
         </div>
 
         <div className="modal-section">
           <h4>기록</h4>
-          <div className="stats-grid">
+          <div className="stats-row">
             {!noWinner && (
               <>
-                <div className="stat-item">
-                  <span className="stat-label">{result.winnerNickname}의 질문</span>
-                  <span className="stat-value">{winnerQuestions}</span>
-                </div>
-                <div className="stat-item">
-                  <span className="stat-label">{result.winnerNickname}의 정답 시도</span>
-                  <span className="stat-value">{winnerAttempts}</span>
-                </div>
+                <span className="stats-item">
+                  {result.winnerNickname}의 질문 <strong>{winnerQuestions}</strong>
+                </span>
+                <span className="stats-item">
+                  {result.winnerNickname}의 정답 시도 <strong>{winnerAttempts}</strong>
+                </span>
               </>
             )}
-            <div className="stat-item">
-              <span className="stat-label">전체 질문</span>
-              <span className="stat-value">{questions.length}</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-label">전체 정답 시도</span>
-              <span className="stat-value">{attempts.length}</span>
-            </div>
+            <span className="stats-item">
+              전체 질문 <strong>{questions.length}</strong>
+            </span>
+            <span className="stats-item">
+              전체 정답 시도 <strong>{attempts.length}</strong>
+            </span>
           </div>
         </div>
 

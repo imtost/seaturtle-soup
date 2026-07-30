@@ -47,12 +47,12 @@ export default function HostSetup() {
             />
           </label>
           <label>
-            결말 (정답을 맞추면 공개)
+            정답 (맞히면 공개)
             <textarea
               value={ending}
               onChange={(e) => setEnding(e.target.value)}
               rows={4}
-              placeholder="정답을 맞췄을 때 공개할 전체 결말을 작성하세요"
+              placeholder="참여자가 정답을 맞혔을 때 공개할 내용을 작성하세요"
               required
             />
           </label>

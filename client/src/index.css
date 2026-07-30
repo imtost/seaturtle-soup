@@ -82,6 +82,10 @@ h4 {
   color: #94a3b8;
 }
 
+button {
+  white-space: nowrap;
+}
+
 input,
 textarea {
   background: #0f172a;
@@ -218,32 +222,42 @@ textarea:focus {
   margin-right: 0;
 }
 
-.game-layout-wrap {
+.page.game-layout-wrap {
   max-width: 1200px;
   margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .game-layout {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
+  display: flex;
   gap: 16px;
-  align-items: start;
+  flex: 1;
+  min-height: 0;
 }
 
 .game-main {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  flex: 2;
+  min-width: 0;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 4px;
 }
 
 .game-side {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  position: sticky;
-  top: 14px;
-  max-height: calc(100vh - 28px);
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
   overflow-y: auto;
+  padding-right: 4px;
 }
 
 .panel {
@@ -294,6 +308,8 @@ textarea:focus {
   white-space: pre-wrap;
   line-height: 1.5;
   font-size: 14px;
+  overflow-wrap: anywhere;
+  word-break: break-all;
 }
 
 .ending-reveal {
@@ -340,16 +356,21 @@ textarea:focus {
   background: #0f172a;
   flex-wrap: wrap;
   font-size: 13px;
+  min-width: 0;
 }
 
 .question-nickname {
   font-weight: 600;
   color: #a5b4fc;
   font-size: 13px;
+  flex-shrink: 0;
 }
 
 .question-content {
   flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-all;
 }
 
 .question-result {
@@ -383,10 +404,15 @@ textarea:focus {
   padding: 8px 10px;
   border-radius: 6px;
   font-size: 13px;
+  min-width: 0;
+  flex-wrap: wrap;
 }
 
 .hint-content {
   flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-all;
 }
 
 .item-time {
@@ -394,32 +420,6 @@ textarea:focus {
   font-size: 11px;
   white-space: nowrap;
   flex-shrink: 0;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-}
-
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  background: #0f172a;
-  border-radius: 8px;
-  padding: 8px 10px;
-}
-
-.stat-label {
-  color: #94a3b8;
-  font-size: 12px;
-}
-
-.stat-value {
-  font-size: 18px;
-  font-weight: 700;
-  color: #a5b4fc;
 }
 
 .stats-panel {
@@ -494,10 +494,15 @@ textarea:focus {
   align-items: baseline;
   gap: 6px;
   font-size: 14px;
+  min-width: 0;
+  flex-wrap: wrap;
 }
 
 .chat-message .chat-content {
   flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-all;
 }
 
 .chat-nickname {
@@ -541,6 +546,7 @@ textarea:focus {
 
 .submission-form input {
   flex: 1;
+  min-width: 0;
 }
 
 .submission-form button {
@@ -550,6 +556,8 @@ textarea:focus {
   border-radius: 8px;
   padding: 0 16px;
   cursor: pointer;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .submission-form button:disabled {
@@ -590,6 +598,8 @@ textarea:focus {
 
 .pending-content {
   margin: 0 0 10px;
+  overflow-wrap: anywhere;
+  word-break: break-all;
 }
 
 .modal-overlay {
@@ -628,18 +638,18 @@ textarea:focus {
 
 @media (max-width: 900px) {
   .game-layout {
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
 
+  .game-main,
   .game-side {
-    position: static;
-    max-height: none;
-    overflow-y: visible;
+    flex: 1;
+    min-height: 0;
   }
 
   .chat-panel {
-    flex: none;
-    height: 320px;
+    flex: 1;
+    min-height: 140px;
   }
 }
 

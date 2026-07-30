@@ -59,12 +59,12 @@ export default function RestartPanel() {
           />
         </label>
         <label>
-          결말 (정답을 맞추면 공개)
+          정답 (맞히면 공개)
           <textarea
             value={ending}
             onChange={(e) => setEnding(e.target.value)}
             rows={3}
-            placeholder="새 결말을 입력하세요"
+            placeholder="새 정답을 입력하세요"
             required
           />
         </label>

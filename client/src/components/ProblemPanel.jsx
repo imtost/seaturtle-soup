@@ -45,7 +45,7 @@ export default function ProblemPanel({ problem, status }) {
       <p className="problem-content">{problem.content}</p>
       {showEnding && problem.ending && (
         <div className="ending-reveal">
-          <h4>결말{previewingAnswer && status !== "ended" ? " (미리보기)" : ""}</h4>
+          <h4>정답{previewingAnswer && status !== "ended" ? " (미리보기)" : ""}</h4>
           <p>{problem.ending}</p>
         </div>
       )}
@@ -56,7 +56,7 @@ export default function ProblemPanel({ problem, status }) {
             <h3>정답을 공개하시겠습니까?</h3>
             <p>
               아직 아무도 정답을 맞히지 못했습니다. 정답을 공개하면 이번 라운드가 즉시
-              종료되고 참여자 전원에게 결말이 공개됩니다.
+              종료되고 참여자 전원에게 정답이 공개됩니다.
             </p>
             <div className="btn-row">
               <button
